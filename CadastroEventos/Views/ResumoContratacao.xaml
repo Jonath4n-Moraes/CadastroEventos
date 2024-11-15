@@ -1,0 +1,77 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventos.Views.ResumoContratacao"
+             Title="ResumoContratacao"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+
+    <VerticalStackLayout>
+
+        <Label Text="Resumo Evento"
+               HorizontalOptions="Center"/>
+
+        <Frame Margin="10"
+               HorizontalOptions="Fill">
+
+            <Grid ColumnDefinitions="Auto,*"
+                  RowDefinitions="*, *, *, *, *">
+
+               
+                <Label Text="Nome Evento"
+                       Grid.Column="0"
+                       HorizontalOptions="Start" />
+
+                <Label Grid.Column="1"
+                       Text="50 Anos Matilda"
+                       HorizontalOptions="EndAndExpand" />
+
+                <Label Text="Tipo Evento"
+                       Grid.Column="0"
+                       Grid.Row="1" 
+                       HorizontalOptions="Start"/>
+
+                <Label Text="Avinversário"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="Quantidade Adultos"
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+
+                <Label Text="100"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="Quantidae de Crianças" 
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       HorizontalOptions="EndAndExpand" />
+
+                <Label Text="50" 
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       HorizontalOptions="EndAndExpand"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Grid ColumnDefinitions="*,*">
+        
+            <Button Text="Finalizar Cotação" 
+                    Grid.Column="0"
+                    Clicked="FinalizarCotacao"
+                    HorizontalOptions="CenterAndExpand"/>
+
+            <Button Text="Voltar"
+                    Grid.Column="1"
+                    Clicked="VoltarContratacao"
+                    HorizontalOptions="CenterAndExpand"/>
+            
+        </Grid>
+        
+    </VerticalStackLayout>
+
+</ContentPage>
