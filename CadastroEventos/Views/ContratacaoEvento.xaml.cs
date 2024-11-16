@@ -1,4 +1,3 @@
-
 using CadastroEventos.Models;
 
 namespace CadastroEventos.Views;
@@ -15,6 +14,8 @@ public partial class ContratacaoEvento : ContentPage
 
 		pck_evento.ItemsSource = PropriedadesApp.lista_eventos;
 
+        pck_local_evento.ItemsSource = PropriedadesApp.lista_local;
+
         dtpck_inicio.MinimumDate = DateTime.Now.AddDays(7);
         dtpck_inicio.MaximumDate = new DateTime(DateTime.Now.Year + 2, DateTime.Now.Month, DateTime.Now.Day);
 
@@ -25,16 +26,37 @@ public partial class ContratacaoEvento : ContentPage
 
     private async void Button_Clicked_pag_resumo_contratacao(object sender, EventArgs e)
     {
+
         try
         {
-            ResumoContratacao h = new ResumoContratacao
+            if (pck_evento.SelectedItem != null &&  pck_local_evento.SelectedItem != null && !string.IsNullOrWhiteSpace(qtde_adultos.Text))
             {
-                
-            };
 
-            await Navigation.PushAsync(new ResumoContratacao());
+                Resumo h = new Resumo
+                {
+                    evento_selecionado = (Evento)pck_evento.SelectedItem,
+                    Qtde_adultos = Convert.ToInt32(qtde_adultos.Text),
+                    Qtde_criancas = Convert.ToInt32(qtde_criancas.Text),
+                    DataInicio = dtpck_inicio.Date,
+                    DataTermino = dtpck_termino.Date,
+                    TemBuffet = chk_buffet.IsChecked ? 1 : 0,
+                    TemDecoracao = chk_decoracao.IsChecked ? 1 : 0,
+                    EspacoSelecionado = (Espacos)pck_local_evento.SelectedItem,
+                    NomeEvento = nome_evento.Text,
+
+                };
 
 
+                await Navigation.PushAsync(new ResumoContratacao()
+                {
+                    BindingContext = h,
+                });
+
+            }
+            else
+            {
+                await DisplayAlert("Atenção", "Selecione tipo evento, local de evento e número de adultos", "OK");
+            }          
         } catch (Exception ex)
         {
             await DisplayAlert("Ops", ex.Message, "ok");

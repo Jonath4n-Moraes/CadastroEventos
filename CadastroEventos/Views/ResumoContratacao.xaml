@@ -3,34 +3,32 @@
              x:Class="CadastroEventos.Views.ResumoContratacao"
              Title="ResumoContratacao"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Black">
-
+             BackgroundColor="MidnightBlue">
+ 
     <VerticalStackLayout>
 
         <Label Text="Resumo Evento"
                HorizontalOptions="Center"/>
 
         <Frame Margin="10"
-               HorizontalOptions="Fill">
+               HorizontalOptions="Fill"
+               BackgroundColor="MidnightBlue">
 
             <Grid ColumnDefinitions="Auto,*"
-                  RowDefinitions="*, *, *, *, *">
+                  RowDefinitions="*, *, *, *, *, *">
 
                
-                <Label Text="Nome Evento"
-                       Grid.Column="0"
-                       HorizontalOptions="Start" />
+                <Label Text="Nome Evento" />
 
                 <Label Grid.Column="1"
-                       Text="50 Anos Matilda"
+                       Text="{Binding NomeEvento}"
                        HorizontalOptions="EndAndExpand" />
 
-                <Label Text="Tipo Evento"
+                <Label Text="Tipo "
                        Grid.Column="0"
-                       Grid.Row="1" 
-                       HorizontalOptions="Start"/>
+                       Grid.Row="1" />
 
-                <Label Text="Avinversário"
+                <Label Text="{Binding evento_selecionado.descricao}"
                        Grid.Column="1"
                        Grid.Row="1"
                        HorizontalOptions="EndAndExpand"/>
@@ -39,7 +37,7 @@
                        Grid.Column="0"
                        Grid.Row="2"/>
 
-                <Label Text="100"
+                <Label Text="{Binding Qtde_adultos}"
                        Grid.Column="1"
                        Grid.Row="2"
                        HorizontalOptions="EndAndExpand"/>
@@ -49,29 +47,92 @@
                        Grid.Row="3"
                        HorizontalOptions="EndAndExpand" />
 
-                <Label Text="50" 
+                <Label Text="{Binding Qtde_criancas}" 
                        Grid.Column="1"
                        Grid.Row="3"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="Duração Evento (dias)" 
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       HorizontalOptions="Start" />
+
+                <Label Text="{Binding tempoEvento}" 
+                       Grid.Column="1"
+                       Grid.Row="5"
                        HorizontalOptions="EndAndExpand"/>
 
             </Grid>
 
         </Frame>
 
-        <Grid ColumnDefinitions="*,*">
-        
-            <Button Text="Finalizar Cotação" 
-                    Grid.Column="0"
-                    Clicked="FinalizarCotacao"
-                    HorizontalOptions="CenterAndExpand"/>
+        <Frame Margin = "10"
+               HorizontalOptions="Fill" 
+               BackgroundColor="MidnightBlue" >
 
-            <Button Text="Voltar"
-                    Grid.Column="1"
-                    Clicked="VoltarContratacao"
-                    HorizontalOptions="CenterAndExpand"/>
-            
-        </Grid>
+            <Grid ColumnDefinitions="Auto,*"
+                  RowDefinitions="*, *, *, *, *, *">
+
+                <Label Text="Valor Total Locação" 
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+                <Label Text="{Binding ValorLocacao, StringFormat='{}{0:c}'}" 
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       HorizontalOptions="EndAndExpand" />
+
+                <Label Text="Valor Total Buffet" 
+                       Grid.Column="0"
+                       Grid.Row="01"/>
+                <Label Text="{Binding ValorBuffet, StringFormat='{}{0:c}'}" 
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="Valor Total Decoração" 
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+                <Label Text="{Binding ValorDecoracao, StringFormat='{}{0:c}'}" 
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <BoxView Grid.Column="0"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         HeightRequest="1" />
+
+                <Label Text="Total Geral"
+                       FontAttributes="Bold"
+                       Grid.Column="0"
+                       Grid.Row="4" />
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"
+                       FontAttributes="Bold"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="Custo por Participante" 
+                       FontAttributes="Bold"
+                       Grid.Column="0"
+                       Grid.Row="5"/>
+                <Label Text="{Binding CustoParticipante, StringFormat='{}{0:c}'}" 
+                       FontAttributes="Bold"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       HorizontalOptions="EndAndExpand"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Button Text="Voltar"
+                Grid.Column="1"
+                Clicked="VoltarContratacao"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="{StaticResource Primary}"/>
         
     </VerticalStackLayout>
 
 </ContentPage>
+

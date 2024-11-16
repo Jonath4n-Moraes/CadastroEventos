@@ -7,10 +7,10 @@ public partial class ResumoContratacao : ContentPage
 		InitializeComponent();
 	}
 
-    public void VoltarContratacao(object sender, EventArgs e)
+    private async void VoltarContratacao(object sender, EventArgs e)
     {
 
-		App.Current.MainPage = new ContratacaoEvento();
+		await Navigation.PopAsync();
 
     }
 

@@ -47,6 +47,30 @@ namespace CadastroEventos
 
         };
 
+        public List<Espacos> lista_local = new List<Espacos>
+        {
+            new Espacos()
+            {
+                NomeEspaco = "Discoteca",
+                valorLocacao = 10000.00
+            },
+            new Espacos()
+            {
+                NomeEspaco = "Choperia",
+                valorLocacao = 7500
+            },
+            new Espacos()
+            {
+                NomeEspaco = "Salão de Festas",
+                valorLocacao =  15000
+            },
+            new Espacos()
+            {
+                NomeEspaco = "Pavilhão",
+                valorLocacao = 25000
+            }
+        };
+
 
         public App()
         {

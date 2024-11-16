@@ -7,7 +7,7 @@ public partial class ContratacaoFinalizada : ContentPage
 		InitializeComponent();
 	}
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
 		App.Current.MainPage = new ContratacaoEvento();
     }

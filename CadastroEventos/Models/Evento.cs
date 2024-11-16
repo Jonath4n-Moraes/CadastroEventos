@@ -17,4 +17,11 @@ namespace CadastroEventos.Models
         public double decoracao { get; set; }
 
     }
+
+    public class Espacos
+    {
+        public string NomeEspaco { get; set; }
+        public double valorLocacao { get; set; }
+    }
+
 }
